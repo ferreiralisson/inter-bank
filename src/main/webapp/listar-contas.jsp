@@ -5,7 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<c:url value="/contas" var="listarContas" />
+<c:url value="/controlador?acao=ListarConta" var="listarConta" />
+<c:url value="/controlador?acao=DeletarConta" var="deletarConta" />
 
 <!DOCTYPE html>
 <html>
@@ -22,8 +23,8 @@
 		<c:forEach items="${contas}" var="conta">
 			<li>
 				${conta.numeroConta} - ${conta.nomeCliente}
-				<a href="#">editar</a>
-				<a href="#">remover</a>
+				<a href="${listarConta}&numero-conta=${conta.numeroConta}">editar</a>
+				<a href="${deletarConta}&numero-conta=${conta.numeroConta}">remover</a>
 			</li>
 		</c:forEach>
 

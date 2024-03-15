@@ -6,6 +6,7 @@ public class Conta {
 	private String nomeCliente;
 
 	public Conta(Integer numeroConta, String nomeCliente) {
+		super();
 		this.numeroConta = numeroConta;
 		this.nomeCliente = nomeCliente;
 	}

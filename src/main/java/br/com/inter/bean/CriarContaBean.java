@@ -1,23 +1,29 @@
-package br.com.inter.controller;
+package br.com.inter.bean;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.inter.controller.TipoAcao;
 import br.com.inter.dao.ContaDAO;
 import br.com.inter.model.Conta;
 
-@WebServlet(urlPatterns = "/nova-conta")
-public class CriarContaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class CriarContaBean implements TipoAcao {
+	
+	private HttpServletRequest req;
+	private HttpServletResponse resp;
+
+	public CriarContaBean(HttpServletRequest req, HttpServletResponse resp) {
+		super();
+		this.req = req;
+		this.resp = resp;
+	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void execute() throws ServletException, IOException {
 		String numeroConta = req.getParameter("numero-conta");
 		String nomeCliente = req.getParameter("nome-cliente");
 		

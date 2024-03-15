@@ -38,4 +38,12 @@ public class ContaDAO {
 			conta.setNomeCliente(contaAtualizada.getNomeCliente());
 		});
 	}
+	
+	public void removerConta(Integer numeroConta) {
+		Optional<Conta> contaExistente = buscaPorId(numeroConta);
+
+		contaExistente.ifPresent(conta -> {
+			contas.remove(conta);
+		});
+	}
 }
